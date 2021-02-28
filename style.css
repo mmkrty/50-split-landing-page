@@ -9,6 +9,9 @@
   --right-split-overlay: rgba(43, 43, 43, 0.8);
   --left-btn-hover: rgba(87, 84, 236, 1);
   --right-btn-hover: rgba(28, 128, 28, 1);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
 }
 
 body {
@@ -78,8 +81,8 @@ h2 {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1rem;
-  border: solid white 2px;
-  width: 200px;
+  border: solid white 0.2rem;
+  width: 15rem;
   padding: 1.5rem;
   display: flex;
   align-items: center;
@@ -98,4 +101,39 @@ h2 {
 .split.right .btn:hover {
   background-color: var(--right-btn-hover);
   border-color: var(--right-btn-hover);
+}
+
+.hover-left .left {
+  width: var(--hover-width);
+}
+
+.hover-left .right {
+  width: var(--other-width);
+}
+
+.hover-right .right {
+  width: var(--hover-width);
+}
+
+.hover-right .left {
+  width: var(--other-width);
+}
+
+.split.left,
+.split.left::before,
+.split.right,
+.split.right::before {
+  transition: all var(--speed) ease-in-out;
+}
+
+@media (max-width: 800px) {
+  h2 {
+    font-size: 2.5rem;
+    top: 30%;
+  }
+
+  .btn {
+    width: 12rem;
+    padding: 1.2rem;
+  }
 }
